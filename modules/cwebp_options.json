@@ -1,0 +1,293 @@
+{
+  "help": {
+    "flag": "-h",
+    "type": "boolean",
+    "desc": "A short usage summary.",
+    "default": false
+  },
+  "longHelp": {
+    "flag": "-H",
+    "type": "boolean",
+    "desc": "A summary of all the possible options.",
+    "default": false
+  },
+  "version": {
+    "flag": "-version",
+    "type": "boolean",
+    "desc": "Print the version number (as major.minor.revision) and exit.",
+    "default": false
+  },
+  "lossless": {
+    "flag": "-lossless",
+    "type": "boolean",
+    "desc": "Encode the image without any loss.",
+    "default": false
+  },
+  "nearLossless": {
+    "flag": "-near_lossless",
+    "type": "number",
+    "desc": "Specify the level of near-lossless image preprocessing.",
+    "range": [0, 100],
+    "default": null
+  },
+  "compression": {
+    "flag": "-q",
+    "type": "float",
+    "desc": "Specify the compression factor for RGB channels between 0 and 100. The default is 75.",
+    "range": [0, 100],
+    "default": 75
+  },
+  "mode": {
+    "flag": "-z",
+    "type": "number",
+    "desc": "Switch on lossless compression mode with the specified level between 0 and 9, with level 0 being the fastest, 9 being the slowest.",
+    "range": [0, 9],
+    "default": null
+  },
+  "alpha": {
+    "flag": "-alpha_q",
+    "type": "number",
+    "desc": "Specify the compression factor for alpha compression between 0 and 100",
+    "range": [0, 100],
+    "default": 100
+  },
+  "preset": {
+    "flag": "-preset",
+    "type": "string",
+    "desc": "Specify a set of pre-defined parameters to suit a particular type of source material. Possible values 'are': default, photo, picture, drawing, icon, text.",
+    "values": ["default", "photo", "picture", "drawing", "icon", "text"]
+  },
+  "method": {
+    "flag": "-m",
+    "type": "number",
+    "desc": "Specify the compression method to use.",
+    "range": [0, 6],
+    "default": 4
+  },
+  "resize": {
+    "flag": "-resize",
+    "type": "object",
+    "desc": "Resize the source to a rectangle with size width x height.",
+    "shape": ["width", "height"],
+    "default": null
+  },
+  "crop": {
+    "flag": "-crop",
+    "type": "object",
+    "desc": "Crop the source to a rectangle with top-left corner at coordinates (x_position, y_position) and size width x height.",
+    "shape": ["x_position", "y_position", "width", "height"],
+    "default": null
+  },
+  "multiThread": {
+    "flag": "-mt",
+    "type": "boolean",
+    "desc": "Use multi-threading for encoding, if possible.",
+    "default": false
+  },
+  "lowMemory": {
+    "flag": "-low_memory",
+    "type": "boolean",
+    "desc": "Reduce memory usage of lossy encoding by saving four times the compressed size (typically).",
+    "default": false
+  },
+  "lossySize": {
+    "flag": "-size",
+    "type": "number",
+    "desc": "Specify a target size (in bytes) to try and reach for the compressed output.",
+    "range": -1,
+    "default": null
+  },
+  "psnr": {
+    "flag": "-psnr",
+    "type": "float",
+    "desc": "Specify a target PSNR (in dB) to try and reach for the compressed output.",
+    "range": -1,
+    "default": null
+  },
+  "passes": {
+    "flag": "-pass",
+    "type": "number",
+    "desc": "Set a maximum number of passes to use during the dichotomy used by options -size or -psnr.",
+    "range": [0, 10],
+    "default": null
+  },
+  "autoFilter": {
+    "flag": "-af",
+    "type": "boolean",
+    "desc": "Turns auto-filter on.",
+    "default": false
+  },
+  "jpegLike": {
+    "flag": "-jpeg_like",
+    "type": "boolean",
+    "desc": "Change the internal parameter mapping to better match the expected size of JPEG compression.",
+    "default": false
+  },
+  "filter": {
+    "flag": "-f",
+    "type": "number",
+    "desc": "Specify the strength of the deblocking filter, between 0 (no filtering) and 100 (maximum filtering).",
+    "range": [0, 100],
+    "default": null
+  },
+  "sharpness": {
+    "flag": "-sharpness",
+    "type": "number",
+    "desc": "Specify the sharpness of the filtering (if used).",
+    "range": [0, 7],
+    "default": 0
+  },
+  "strong": {
+    "flag": "-strong",
+    "type": "boolean",
+    "desc": "Use strong filtering (if filtering is being used thanks to the -f option).",
+    "default": false
+  },
+  "nostrong": {
+    "flag": "-nostrong",
+    "type": "boolean",
+    "desc": "Disable strong filtering (if filtering is being used thanks to the -f option) and use simple filtering instead.",
+    "default": false
+  },
+  "sharpYuv": {
+    "flag": "-sharp_yuv",
+    "type": "boolean",
+    "desc": "Use more accurate and sharper RGB->YUV conversion if needed.",
+    "default": false
+  },
+  "noiseShaping": {
+    "flag": "-sns",
+    "type": "number",
+    "desc": "Specify the amplitude of the spatial noise shaping.",
+    "range": [0, 100],
+    "default": 50
+  },
+  "segments": {
+    "flag": "-segments",
+    "type": "number",
+    "desc": "Change the number of partitions to use during the segmentation of the sns algorithm.",
+    "range": [1, 4],
+    "default": 4
+  },
+  "partitionLimit": {
+    "flag": "-partition_limit",
+    "type": "number",
+    "desc": "Degrade quality by limiting the number of bits used by some macroblocks.",
+    "range": [0, 100],
+    "default": 0
+  },
+  "extraInfo": {
+    "flag": "-v",
+    "type": "boolean",
+    "desc": "Print extra information (encoding time in particular).",
+    "default": false
+  },
+  "printPsnr": {
+    "flag": "-print_psnr",
+    "type": "boolean",
+    "desc": "Compute and report average PSNR (Peak-Signal-To-Noise ratio).",
+    "default": false
+  },
+  "printSsim": {
+    "flag": "-print_ssim",
+    "type": "boolean",
+    "desc": "Compute and report average SSIM (structural similarity metric, see \"http\"://en.wikipedia.org/wiki/SSIM for additional details).",
+    "default": false
+  },
+  "printLsim": {
+    "flag": "-print_lsim",
+    "type": "boolean",
+    "desc": "Compute and report local similarity metric (sum of lowest error amongst the collocated pixel neighbors).",
+    "default": false
+  },
+  "progress": {
+    "flag": "-progress",
+    "type": "boolean",
+    "desc": "Report encoding progress in percent.",
+    "default": false
+  },
+  "quiet": {
+    "flag": "-quiet",
+    "type": "boolean",
+    "desc": "Do not print anything.",
+    "default": false
+  },
+  "short": {
+    "flag": "-short",
+    "type": "boolean",
+    "desc": "Only print brief information (output file size and PSNR) for testing purposes.",
+    "default": false
+  },
+  "map": {
+    "flag": "-map",
+    "type": "boolean",
+    "desc": "Output additional ASCII-map of encoding information.",
+    "range": [1, 6],
+    "default": null
+  },
+  "samples": {
+    "flag": "-s",
+    "type": "object",
+    "desc": "Specify that the input file actually consists of raw Y\"CbCr samples following the ITU-R BT.601 recommendation, in \"4\":\"2\":0 linear format.",
+    "shape": ["width", "height"],
+    "default": null
+  },
+  "preProcessingSteps": {
+    "flag": "-pre",
+    "type": "number",
+    "desc": "Specify some pre-processing steps. Using a value of 2 will trigger quality-dependent pseudo-random dithering during RGBA->YUVA conversion (lossy compression only).",
+    "range": [0, 2],
+    "default": null
+  },
+  "alphaFilter": {
+    "flag": "-alpha_filter",
+    "type": "string",
+    "desc": "Specify the predictive filtering method for the alpha plane. ",
+    "values": ["none", "fast", "best"],
+    "default": "fast"
+  },
+  "alphaMethod": {
+    "flag": "-alpha_method",
+    "type": "number",
+    "desc": "Specify the algorithm used for alpha \"compression\": 0 or 1.",
+    "range": [0, 1],
+    "default": 1
+  },
+  "exact": {
+    "flag": "-exact",
+    "type": "boolean",
+    "desc": "Preserve RGB values in transparent area. The default is off, to help compressibility.",
+    "default": false
+  },
+  "blendAlpha": {
+    "flag": "-blend_alpha",
+    "type": "number",
+    "desc": "This option blends the alpha channel (if present) with the source using the background color specified in hexadecimal as 0xrrggbb.",
+    "range": [0, 255],
+    "default": null
+  },
+  "noAlpha": {
+    "flag": "-noalpha",
+    "type": "boolean",
+    "desc": "Using this option will discard the alpha channel.",
+    "default": false
+  },
+  "hint": {
+    "flag": "-hint",
+    "type": "",
+    "desc": ""
+  },
+  "metadata": {
+    "flag": "-metadata",
+    "type": "string",
+    "desc": "Specify the hint about input image type.",
+    "values": ["all", "none", "exif", "icc", "xmp"],
+    "default": "none"
+  },
+  "noasm": {
+    "flag": "-noasm",
+    "type": "boolean",
+    "desc": "Disable all assembly optimizations.",
+    "default": null
+  }
+}
